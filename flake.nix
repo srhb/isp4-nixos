@@ -26,13 +26,13 @@
         boot.kernelPackages =
           let
             linux = pkgs.buildLinux rec {
-              version = "6.17.0-rc6";
+              version = "6.17.0-rc7";
               modDirVersion = version;
               src = pkgs.fetchFromGitHub {
                 owner = "srhb";
                 repo = "linux";
-                rev = "29aabd1d1349c2d11c91c4a131aea2ee12aaa02b";
-                hash = "sha256-v7Ve8Fb2DmZG2hpZP8VyEPSr40csmUpNtdZLOVbOXYA=";
+                rev = "69073dd0f1fa55470761de66ee392094c7ffbd81";
+                hash = "sha256-4TYiACv0iExphKMOU4Ms6V57GmId7TjbN7lrJhlUWZ8=";
               };
             };
             kernelPackages = pkgs.linuxPackagesFor linux;
