@@ -2,48 +2,24 @@
   outputs = _: {
     nixosModules.isp4 =
       { pkgs, lib, ... }:
-      let
-        zfso = final: prev: {
-          version = "2.3.4"; # ish
-          __intentionallyOverridingVersion = true;
-          patches = prev.patches ++ [
-            (pkgs.fetchpatch {
-              url = "https://github.com/openzfs/zfs/pull/17621.patch";
-              hash = "sha256-HmQV8QK0GinSLGJD8qZyXcV40mNE4Cw3GDiUAA7NjQA=";
-            })
-          ];
-
-          postPatch = prev.postPatch + ''
-            sed -i 's/6.16/6.17/' META
-          '';
-          meta = prev.meta // {
-            broken = false;
-          };
-        };
-      in
       {
-
         boot.kernelPackages =
           let
             linux = pkgs.buildLinux rec {
-              version = "6.17.7";
+              version = "6.17.9";
               modDirVersion = version;
               src = pkgs.fetchFromGitHub {
                 owner = "srhb";
                 repo = "linux";
-                rev = "0e1092c278c9c88f97d9c09b854e0b06aeda65ec";
-                hash = "sha256-pIsTm8alb3OM57Kw2Oo4c0mIm3uz57K2qOp+aXnwT+8=";
+                rev = "5fe865f27eb34282b0f401d0b003cab8c68e4a5e";
+                hash = "sha256-ogqP7ngYlBwedJ+1jjEdsgI5eLDJey9gdebkAX+bzsc=";
               };
             };
             kernelPackages = pkgs.linuxPackagesFor linux;
           in
           kernelPackages.extend (
-            self: super: {
-              zfs_2_3 = super.zfs_2_3.overrideAttrs zfso;
-            }
+            self: super: { }
           );
-
-        boot.zfs.package = pkgs.zfs.overrideAttrs zfso;
 
         nixpkgs.overlays = [
           (self: super: {
