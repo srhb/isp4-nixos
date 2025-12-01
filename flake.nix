@@ -11,8 +11,8 @@
               src = pkgs.fetchFromGitHub {
                 owner = "srhb";
                 repo = "linux";
-                rev = "5fe865f27eb34282b0f401d0b003cab8c68e4a5e";
-                hash = "sha256-ogqP7ngYlBwedJ+1jjEdsgI5eLDJey9gdebkAX+bzsc=";
+                rev = "19681df17c38594a564057cd36ed8bb349f12f4e";
+                hash = "sha256-JwBYKd7uJcv+wQqqwfeTdhqlkDeoEJgdx154n3zb1Rg=";
               };
             };
             kernelPackages = pkgs.linuxPackagesFor linux;
