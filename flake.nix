@@ -26,6 +26,18 @@
             };
           }
         ];
+
+        hardware.firmware = [
+          (pkgs.linux-firmware.overrideAttrs (_: {
+            version = "20260226-unstable";
+            src = pkgs.fetchFromGitLab {
+              owner = "kernel-firmware";
+              repo = "linux-firmware";
+              rev = "d8e138dd8970ffc9f5f879e2d62938abe6cd3f22";
+              hash = "sha256-/OkEh1xB8dud4Jun3eX3QjGeByJkfHxXNSVIctgoMyQ=";
+            };
+          }))
+        ];
       };
   };
 }
