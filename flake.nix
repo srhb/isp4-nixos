@@ -22,7 +22,7 @@
             name = "v8_20260212_bin_du_add_amd_isp4_driver";
             patch = pkgs.fetchurl {
               url = "https://lore.kernel.org/all/20260212083426.216430-1-Bin.Du@amd.com/t.mbox.gz";
-              hash = "sha256-kvwjOYB478OjLT81+I3I4gEcIRXhdTuv1ofP3/DgpEs=";
+              hash = "sha256-NlR6SW3k2iMehL5HighjAgvD/Im2WeUI2VBZFGZel7c=";
             };
           }
         ];
