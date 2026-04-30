@@ -6,11 +6,11 @@
         boot.kernelPackages =
           let
             linux = pkgs.buildLinux rec {
-              version = "6.18.10";
+              version = "6.18.26";
               modDirVersion = version;
               src = fetchTarball {
                 url = "https://cdn.kernel.org/pub/linux/kernel/v6.x/linux-${version}.tar.xz";
-                sha256 = "sha256:1jrh1ylkaivgyqgdx72r3f9wnfffmvg3bzw37k84bq53z09i7zpd";
+                sha256 = "sha256:0ahcx78v71nspmyyhcb0rb27dv52apn531g9gxs4zscx3s1mrnfi";
               };
             };
             kernelPackages = pkgs.linuxPackagesFor linux;
