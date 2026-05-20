@@ -6,11 +6,11 @@
         boot.kernelPackages =
           let
             linux = pkgs.buildLinux rec {
-              version = "6.18.29";
+              version = "7.0.9";
               modDirVersion = version;
               src = fetchTarball {
-                url = "https://cdn.kernel.org/pub/linux/kernel/v6.x/linux-${version}.tar.xz";
-                sha256 = "sha256:1y2hhzr89x3ah486gwjg13np9rh2bjbl8qyf1m2fnqkiq68im011";
+                url = "https://cdn.kernel.org/pub/linux/kernel/v7.x/linux-${version}.tar.xz";
+                sha256 = "sha256:11hxkkcryzf0y6p058g4fjfdavw9q072kflr1d7adffi1mdkj9br";
               };
             };
             kernelPackages = pkgs.linuxPackagesFor linux;
@@ -19,10 +19,10 @@
 
         boot.kernelPatches = [
           {
-            name = "v7_20251216_bin_du_add_amd_isp4_driver";
+            name = "v10_20260506_bin_du_add_amd_isp4_driver";
             patch = pkgs.fetchurl {
-              url = "https://lore.kernel.org/all/20251216091326.111977-1-Bin.Du@amd.com/t.mbox.gz";
-              hash = "sha256-ncKvOyV8YzGJR0XdyspcH2tlanYeYnV68EstYcMax+o=";
+              url = "https://lore.kernel.org/all/20260506093250.93460-1-Bin.Du@amd.com/t.mbox.gz";
+              hash = "sha256-PU0h7Wd3LC0vuXkWGd2YHAKTkGRvwZ79ZMkK3liea7A=";
             };
           }
         ];
